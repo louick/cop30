@@ -13,9 +13,11 @@ const COLORS = {
   color5: "#d4c4b4",
 };
 
+const BASE = import.meta.env.MODE === "production" ? "/cop30" : "";
+
 const SEGMENTOS = [
   {
-    image: "/images/restaurante.jpg",
+    image: `${BASE}/images/restaurante.jpg`,
     title: "Restaurantes",
     badge: "Sistema Inteligente de Reservas",
     description: "Menu digital multilíngue, pedidos pelo QR code, fotos de pratos e destaque no mapa oficial da COP30.",
@@ -34,7 +36,7 @@ const SEGMENTOS = [
     ]
   },
   {
-    image: "/images/hotel.jpg",
+    image: `${BASE}/images/hotel.jpg`,
     title: "Hotéis & Pousadas",
     badge: "Check-in Digital e Antecipado",
     description: "Receba hóspedes do mundo todo com check-in digital, reservas instantâneas e confirmação automática.",
@@ -49,7 +51,7 @@ const SEGMENTOS = [
     ]
   },
   {
-    image: "/images/cafe.jpg",
+    image: `${BASE}/images/cafe.jpg`,
     title: "Cafés & Food-Trucks",
     badge: "Pagamentos Online",
     description: "Pedidos e pagamentos pelo celular, cardápio ilustrado e recomendações automáticas em várias línguas.",
@@ -63,7 +65,7 @@ const SEGMENTOS = [
     ]
   },
   {
-    image: "/images/passeio.jpg",
+    image: `${BASE}/images/passeio.jpg`,
     title: "Transporte & Passeios",
     badge: "Aplicativo Multilíngue",
     description: "Reservas online, mapas interativos, tour guiado em áudio e agendamento fácil para grupos internacionais.",
@@ -77,7 +79,7 @@ const SEGMENTOS = [
     ]
   },
   {
-    image: "/images/museu.jpg",
+    image: `${BASE}/images/museu.jpg`,
     title: "Cultura & Museus",
     badge: "Gestão Inteligente de Eventos",
     description: "Venda de ingressos online, agenda multilíngue e tour virtual do seu espaço – tudo no celular.",
@@ -98,56 +100,38 @@ export default function App() {
   const [selectedSegment, setSelectedSegment] = useState(null);
 
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{ fontFamily: "Helvetica, Arial, sans-serif" }}
-    >
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
       <div style={{ background: "#fff", minHeight: "100vh" }}>
         <div style={{ textAlign: "center", margin: "2rem 0 1rem" }}>
           <img
-            src="/images/logocop.svg"
+            src={`${BASE}/images/logocop.svg`}
             alt="COP30 Logo"
             style={{ width: 150, height: "auto", display: "inline-block" }}
           />
         </div>
-        {/* --- SUBTÍTULO MODERNO E VENDEDOR --- */}
-        <div
-          style={{
-            maxWidth: 730,
-            margin: "0 auto 2.2rem auto",
-            padding: "1.2rem 1.2rem 1.6rem 1.2rem",
-            background: "#f7fafc",
-            borderRadius: 18,
-            boxShadow: "0 2px 12px 0 #05657d0c",
-            textAlign: "center",
-          }}
-        >
-          <span
-            style={{
-              color: "#05657d",
-              fontWeight: 700,
-              fontSize: 18,
-              letterSpacing: 0,
-              marginBottom: 5,
-              display: "inline-block",
-            }}
-          >
-            Transforme cada segmento do seu negócio para a COP30.
-          </span>
-          <br />
-          <span
-            style={{
-              color: "#444",
-              fontSize: 17,
-              fontWeight: 400,
-              lineHeight: 1.35,
-              marginTop: 3,
-              display: "inline-block",
-            }}
-          >
-            Tenha soluções profissionais, modernas e pensadas para impulsionar <b>restaurantes, hotéis, cafés, mobilidade e cultura</b> no maior evento global da Amazônia.
-          </span>
+        <div style={{
+          maxWidth: 720,
+          margin: "0 auto 1.8rem auto",
+          textAlign: "center",
+        }}>
+          <p style={{
+            marginBottom: 6,
+            color: "#444",
+            fontSize: 17,
+            fontWeight: 400,
+            lineHeight: 1.3
+          }}>
+            Soluções digitais para transformar cada segmento do seu negócio na COP30.
+          </p>
+          <h2 style={{
+            color: "#05657d",
+            fontSize: 22,
+            fontWeight: 700,
+            lineHeight: 1.12,
+            margin: 0
+          }}>
+            Descubra como restaurantes, hotéis, cafés, mobilidade e cultura podem crescer exponencialmente e se destacar na Amazônia.
+          </h2>
         </div>
         <div className="segment-main">
           <div className="segment-grid">
